@@ -4,14 +4,19 @@
 </head>
 <body>
 	<h1>Hangman</h1>
-	<img src="<%= img_src %>">
-	<% if game_over %>
+	<img src="stage-<%= game.stage %>.png">
+	<% if game.game_over %>
 	<p>Game over!</p>
 	<% end %>
-	<p><%= word_so_far %></p>
-	<p>Guessed so far: <%= guessed_so_far %></p>
+	<p><%= game.word_so_far %></p>
+	<p>Guessed so far: <%= game.guessed_so_far %></p>
 	<form>
 		<input type="text" name="guess" maxlength="1" size="1">
 		<input type="submit" value="Guess!">
+	</form>
+	<p><%= message %></p>
+	<form>
+		<input type="hidden" name="new-game" value="true">
+		<input type="submit" value="New Game">
 	</form>
 </body>
